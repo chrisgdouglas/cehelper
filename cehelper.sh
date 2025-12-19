@@ -19,7 +19,7 @@ PRTEXEC="$STEAMPATH/steamapps/common/Proton - Experimental/proton"
 # 'grep' for AppId, include the first 20 characters after match
 # 'cut' the "AppId=" match from the result, return only those that match the '=' delimiter
 # 'awk' returns the first "column" of output, trimmed of whitespace
-APPID=$(ps -ef | grep -oP "AppId.{0,20}" | cut -sf2- -d= | awk '{print $1}')
+APPID=$(ps -ef | grep -m 1 -o -P "AppId.{0,20}" | cut -sf2- -d= | awk '{print $1}')
 
 if [ $# = 0 ]; then
     PS3='Select choice: '
